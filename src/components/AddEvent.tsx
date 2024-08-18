@@ -74,8 +74,13 @@ export default function AddEvent() {
     setShowAddEvent(false);
   }
   useEffect(() => {
-      setSelectedLabelName(selectedLabel?.split("-")[1] as string)
-  },[selectedLabel])
+        if(selectedEvent != null){
+            setSelectedLabelName(selectedEvent?.labelName as string)
+        }else{
+
+            setSelectedLabelName(selectedLabel?.split("-")[1] as string)
+        }
+  },[selectedEvent, selectedLabel])
   return (
     <div className=" w-full h-full bg-transparent absolute flex flex-col items-center p-4  justify-center">
       {/* <div className=" h-full w-full md:h-5/6 md:w-5/6 rounded-lg bg-purple-100 absolute"> */}
