@@ -2,21 +2,42 @@ import { Dayjs } from "dayjs";
 import { createContext } from "react";
 import { Action, Event } from "./calandar";
 
-export const createCalandarContext = createContext({
+// Define the shape of your context
+interface CalandarContextProps {
+  monthIndex: number;
+  setMonthIndex: (index: number) => void;
+  smallCalandarMonthIndex: number | null;
+  setSmallCalandarMonthIndex: (index: number) => void;
+  smallCalandarDaySelected: Dayjs | null;
+  setSmallCalandarDaySelected: (day: Dayjs) => void;
+  showAddEvent: boolean;
+  setShowAddEvent: (value: boolean) => void;
+  dispatchCalEvent: (action: Action) => void;
+  savedEvents: Event[];
+  selectedEvent: Event | null;
+  setSelectedEvent: (val: Event | null) => void;
+  labels: { label: string; labelName: string; checkBoxColor: string; checked: boolean }[];
+  setLabels: (value: { label: string; labelName: string; checkBoxColor: string; checked: boolean }[]) => void;
+  updateLabel: (value: { label: string; labelName: string; checkBoxColor: string; checked: boolean }) => void;
+  filteredEvents: Event[];
+}
+
+// Create context with default values
+export const createCalandarContext = createContext<CalandarContextProps>({
   monthIndex: 0,
-  setMonthIndex: (index: number) => {},
-  smallCalandarMonthIndex: null as number | null,
-  setSmallCalandarMonthIndex: (index: number) => {},
-  smallCalandarDaySelected: null as Dayjs | null,
-  setSmallCalandarDaySelected: (day: Dayjs) => {},
+  setMonthIndex: () => {},
+  smallCalandarMonthIndex: null,
+  setSmallCalandarMonthIndex: () => {},
+  smallCalandarDaySelected: null,
+  setSmallCalandarDaySelected: () => {},
   showAddEvent: false,
-  setShowAddEvent: (value: boolean) => {},
-  dispatchCalEvent: (action: Action) => {},
-  savedEvents: [] as Event[],
-  selectedEvent: null as Event | null,
-  setSelectedEvent: (val:Event | null) => {},
-  setLabels: ( value: { label: string; labelName: string; checkBoxColor: string; checked: boolean }[]) => {},
-  labels: [] as { label: string; labelName: string; checkBoxColor: string; checked: boolean }[] | [],
-  updateLabel: (value : { label: string; labelName: string; checkBoxColor: string; checked: boolean }) => {},
-  filteredEvents: [] as Event[] | [],
+  setShowAddEvent: () => {},
+  dispatchCalEvent: () => {},
+  savedEvents: [],
+  selectedEvent: null,
+  setSelectedEvent: () => {},
+  labels: [],
+  setLabels: () => {},
+  updateLabel: () => {},
+  filteredEvents: [],
 });

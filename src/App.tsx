@@ -4,7 +4,6 @@ import Month from './components/Month'
 import CalandarHeader from './components/CalandarHeader'
 import { useCalandar } from './hooks/useCalandar'
 import SideBar from './components/SideBar'
-import AddEvent from './components/AddEvent'
 
 function App() {
   const [currentMonth, setMonthIndex] = useState(getMonth())
@@ -18,7 +17,7 @@ function App() {
     <main>
     <div className="h-screen flex flex-col relative">
       
-      <CalandarHeader setShowSideBar={setShowSideBar} />
+      <CalandarHeader setShowSideBar={setShowSideBar} showSideBar={showSideBar} />
       <div className="flex flex-1">
         <SideBar showSideBar={showSideBar} />
         <Month month={currentMonth} />

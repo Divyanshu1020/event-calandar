@@ -1,13 +1,13 @@
 import dayjs from "dayjs";
 import { useCalandar } from "../hooks/useCalandar";
 
-export default function CalandarHeader({setShowSideBar}:{setShowSideBar: (val:boolean)=>void}) {
+export default function CalandarHeader({setShowSideBar, showSideBar}:{setShowSideBar: (val:boolean)=>void, showSideBar: boolean}) {
   const { monthIndex, setMonthIndex } = useCalandar();
 
 
 
   const handleShowSideBar = () => {
-    setShowSideBar((pre:boolean)=>(!pre))
+    setShowSideBar(!showSideBar)
   }
   const handleReset = () => {
     setMonthIndex(dayjs().month())
