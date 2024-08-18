@@ -1,50 +1,18 @@
-# React + TypeScript + Vite
+# Event Calandar
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a React-based calendar application developed as an assignment for Grey Scientific Labs. The application allows users to view, add, edit, and delete events. It is built with TypeScript, Tailwind CSS, and utilizes local storage for persistence.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Features
+- View Events: Users can browse events by navigating through the calendar.
+- Add Events: Allows users to add new events with details like title, date, and description.
+- Edit Events: Users can edit existing events to update details.
+- Delete Events: Users can remove events from the calendar.
+- Persistent Storage: Events are stored locally using the browser's local storage, ensuring data is retained across sessions.
+## Tech Stack
+- React & TypeScript: The core framework for building the application with type safety.
+- Tailwind CSS: Utilized for styling the application, ensuring a responsive and modern UI.
+- Local Storage: Used to persist events so that data is retained between sessions.
+## React Hooks:
+- Context API: For managing global state across the application.
+- Reducer: Used for handling complex state logic in a scalable way.
+- Memo: Employed to optimize performance by memoizing components.
